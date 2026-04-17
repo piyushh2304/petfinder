@@ -4,6 +4,10 @@
   "description": "",
   "main": "db_setup.js",
   "scripts": {
+    "dev:backend": "node server.js",
+    "dev:frontend": "cd frontend && npm run dev",
+    "dev:ml": "cd ml_service && .\\venv\\Scripts\\activate && uvicorn main:app --reload",
+    "dev": "concurrently \"npm run dev:backend\" \"npm run dev:frontend\" \"npm run dev:ml\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -19,5 +23,8 @@
     "form-data": "^4.0.5",
     "multer": "^2.1.1",
     "pg": "^8.20.0"
+  },
+  "devDependencies": {
+    "concurrently": "^9.2.1"
   }
 }
